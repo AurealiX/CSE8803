@@ -3,18 +3,15 @@ import pandas as pd
 from tqdm import tqdm
 import pickle
 import logging
-from dotenv import load_dotenv
 import os
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Initialize HuggingFace client
-load_dotenv()
+# Load .env file
 
-# Initialize HuggingFace client
-HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
+HUGGINGFACE_API_KEY = "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"
 client = InferenceClient(
     api_key = HUGGINGFACE_API_KEY,
 )
@@ -77,7 +74,7 @@ def evaluate_response(unlearned_response):
 
 def main():
     # Load saved dictionary
-    pickle_file_path = "results/responses_20241125_160617.pkl"
+    pickle_file_path = "CSE8803/results/safe_responses_20241125_232856.pkl"
     logger.info(f"Loading responses from {pickle_file_path}")
     
     try:
